@@ -1,8 +1,8 @@
 // Final Project Requirements:
-//  1) Link to GitHub code repository.
-//  2) Link to deployed project.
-//  3) One page PDF document discussing what challenges you faced while building your project.
-//  4) Automated Tests for REST API (Automated Testing page will run 70 detailed automated tests on REST API).
+//  1. Link to GitHub code repository.
+//  2. Link to deployed project.
+//  3. One page PDF document discussing what challenges you faced while building your project.
+//  4. Automated Tests for REST API (Automated Testing page will run 70 detailed automated tests on REST API).
 
 // Final Project GitHub Repository (Node.js REST API)
 // https://github.com/jarrettsmo/INF653VC_Final_NodejsRestAPI_Jarrett_Smolarkiewicz
