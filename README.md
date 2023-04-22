@@ -57,11 +57,10 @@ INF653 Back End Web Development - Final Project Requirements
     v) Montana
 
 4. DEPLOYMENT Requirement: You will host your project with a free glitch.com account
-a) This allows for EASY deployment from Github
-b) Glitch supports environment variables.
-i) Do NOT include your .env file in your Github repository
-ii) After deploying to Glitch, you can edit your project at Glitch and add the environment
-variable(s) needed
+ a) This allows for EASY deployment from Github
+ b) Glitch supports environment variables.
+    i) Do NOT include your .env file in your Github repository
+    ii) After deploying to Glitch, you can edit your project at Glitch and add the environment variable(s) needed.
 
 5. ROOT URLs:
  a) Your root project URL should follow this pattern:
@@ -95,24 +94,24 @@ Request:                        Response:
  /states/:state/admission        { ‘state’: stateName, ‘admitted’: admissionDate }
 
 NOTES on GET routes:
-1. If you have a catch all for routes that do not exist in your server, you will not need to check if
-   URL parameters exist. If they are entered wrong, the response will be a 404.
+  1. If you have a catch all for routes that do not exist in your server, you will not need to check if
+     URL parameters exist. If they are entered wrong, the response will be a 404.
 
-2. The :state URL parameter above represents state codes like KS, NE, TX, NY, etc. Entering in
-   full state names should result in a 404.
+  2. The :state URL parameter above represents state codes like KS, NE, TX, NY, etc. Entering in
+     full state names should result in a 404.
 
-3. Check the example application to verify the exact responses expected.
+  3. Check the example application to verify the exact responses expected.
 
-4. Also check the example application for expected messages when required parameters are not
-   received or no fun facts are found for a requested state.
+  4. Also check the example application for expected messages when required parameters are not
+     received or no fun facts are found for a requested state.
 
-5. Notice contig above is a query parameter where :state is a URL parameter.
+  5. Notice contig above is a query parameter where :state is a URL parameter.
 
-6. “All state data” means all state data from statesData.json merged with the fun facts stored in MongoDB.
+  6. “All state data” means all state data from statesData.json merged with the fun facts stored in MongoDB.
 
 7. Your REST API will provide responses to the following POST request:
-   Request: Response:
-   /states/:state/funfact The result received from MongoDB
+     Request:                    Response:
+      /states/:state/funfact      The result received from MongoDB
 
  Notes:
   1) The body of this POST request should contain a “funfacts” property providing an array
@@ -124,8 +123,8 @@ NOTES on GET routes:
      funfacts array should be avoided but are possible.
 
 8. Your REST API will provide responses to the following PATCH request:
-   Request: Response (fields):
-   /states/:state/funfact The result received from MongoDB
+   Request:                   Response (fields):
+    /states/:state/funfact     The result received from MongoDB
 
  Note:
   1) The body of the PATCH submission MUST contain the index of the funfacts array element to
@@ -134,8 +133,8 @@ NOTES on GET routes:
      sent: if (!index) etc. …afterwards, you should subtract 1 to adjust for the data array which is zero-based.
 
 9. Your REST API will provide responses to the following DELETE request:
-   Request: Response (fields):
-   /states/:state/funfact The result received from MongoDB
+   Request:                   Response (fields):
+    /states/:state/funfact     The result received from MongoDB
 
  Note:
   1) The body of the DELETE submission MUST contain the index of the funfacts array element to remove. 
