@@ -1,0 +1,19 @@
+{
+  "name": "nodejs_rest_api",
+  "version": "1.0.0",
+  "description": "Final project for INF 653 VA",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jarrettsmo/INF653VC_Final_NodejsRestAPI_Jarrett_Smolarkiewicz.git"
+  },
+  "author": "Jarrett Smolarkiewicz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jarrettsmo/INF653VC_Final_NodejsRestAPI_Jarrett_Smolarkiewicz/issues"
+  },
+  "homepage": "https://github.com/jarrettsmo/INF653VC_Final_NodejsRestAPI_Jarrett_Smolarkiewicz#readme"
+}
