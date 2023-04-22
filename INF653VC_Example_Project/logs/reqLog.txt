@@ -188,3 +188,5 @@
 20230422	10:22:02	58a0ae12-9138-4676-a711-22faf8a00da2	POST	undefined	/register
 20230422	10:22:10	458b8a10-d4c8-4d8f-acb2-a08880899620	POST	undefined	/register
 20230422	10:23:04	63718fa4-d33f-4425-a338-025ec8d6854d	POST	undefined	/auth
+20230422	10:27:38	9756f788-4d09-4989-bf1a-e887887db64c	POST	undefined	/auth
+20230422	12:21:27	09ec5ee8-bac8-4c4e-b420-7e5765d9eea8	POST	undefined	/auth

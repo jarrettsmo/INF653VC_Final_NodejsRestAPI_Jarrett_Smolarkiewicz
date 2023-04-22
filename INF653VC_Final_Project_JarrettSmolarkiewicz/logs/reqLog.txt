@@ -1,0 +1,9 @@
+20230422	16:13:16	ed675c2a-4298-4712-b8eb-bc81639e2a0b	GET	undefined	/
+20230422	16:13:16	023951ba-a790-48e4-8295-d1baa3f1d088	GET	undefined	/css/style.css
+20230422	16:13:21	407c97bf-7d16-4d59-94d6-51b5a2f10b61	GET	undefined	/favicon.ico
+20230422	16:13:28	2695aadd-d610-4e93-ac4e-955e6cbb6bd5	GET	undefined	/404
+20230422	16:13:28	32782b7a-6713-4a93-9e8f-38f4fdd0ee84	GET	undefined	/css/style.css
+20230422	16:13:40	99aea92f-2e34-4ed0-975c-af86dcd1208a	GET	undefined	/
+20230422	16:13:40	f3c7cf9f-fdac-4b67-a4e9-0a87ba5fadfe	GET	undefined	/css/style.css
+20230422	16:34:19	516b1edc-bccf-4912-b1ed-9c6e3e6232d0	GET	undefined	/
+20230422	16:35:56	68da4f90-2ec3-40f6-aa93-468c32aeb99e	POST	undefined	/
