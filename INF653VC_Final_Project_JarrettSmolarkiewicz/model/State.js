@@ -8,7 +8,8 @@ const stateSchema = new Schema({
         unique: true
     },
     funfacts: [{
-        type: String
+        type: String,
+        default: "No fun facts yet!"
     }]
 });
 

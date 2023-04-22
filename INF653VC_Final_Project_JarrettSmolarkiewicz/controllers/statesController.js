@@ -1,54 +1,60 @@
-const data = {
-    states: require('../model/statesData.json'),
-    setStates: function (data) { this.states = data }
-};
+const StateFact = require('../model/State');
 
-const getAllStateFacts = (req, res) => {
-    res.json(data.states);
+const getAllStateFacts = async (req, res) => {
+    const stateFacts = await StateFact.find();
+    if (!StateFacts) return res.status(204).json({ 'message': 'No states with fun facts found.' });
+    res.json(stateFacts);
 }
 
-const createNewStateFact = (req, res) => {
-    const newStateFact = {
-        id: data.states?.length ? data.states[data.states.length - 1].id + 1 : 1,
-        stateCode: req.body.stateCode,
-        funfacts: req.body.funfacts
+const createNewStateFact = async (req, res) => {
+    if (!req?.body?.stateCode) {
+        return res.status(400).json({ 'message': 'A state code is required at minimum.' });
     }
+    
+    try {
+        const result = await StateFact.create({
+            stateCode: req.body.stateCode,
+            funfacts: req.body.funfacts
+        });
 
-    if (!newStateFact.stateCode || !newStateFact.funfacts) {
-        return res.status(400).json({ 'message': 'A state code and at least one fun fact is required.' });
+        res.status(201).json(result);
+    } catch (err) {
+        console.error(err);
     }
-
-    data.setStateFact([...data.states, newStateFact]);
-    res.status(201).json(data.states);
 }
 
-const updateStateFact = (req, res) => {
-    const stateFact = data.states.find(stf => stf.id === parseInt(req.body.id));
+const updateStateFact = async (req, res) => {
+    if (!req?.body?.id) {
+        return res.status(400).json({ 'message': 'ID parameter is required.' });
+    }
+
+    const stateFact = await StateFact.findOne({ _id: req.body.id }).exec();
     if (!stateFact) {
-        return res.status(400).json({ "message": `State Fact ID ${req.body.id} not found` });
+        return res.status(204).json({ "message": `No state matches ID ${req.body.id}.` });
     }
-    if (req.body.stateCode) stateFact.stateCode = req.body.stateCode;
-    if (req.body.funfacts) stateFact.funfacts = req.body.funfacts;
-    const filteredArray = data.states.filter(stf => stf.id !== parseInt(req.body.id));
-    const unsortedArray = [...filteredArray, stateFact];
-    data.setStateFacts(unsortedArray.sort((a, b) => a.id > b.id ? 1 : a.id < b.id ? -1 : 0));
-    res.json(data.states);
+    if (req.body?.stateCode) stateFact.stateCode = req.body.stateCode;
+    if (req.body?.funfacts) stateFact.funfacts = req.body.funfacts;
+    const result = await stateFact.save();
+    res.json(result);
 }
 
-const deleteStateFact = (req, res) => {
-    const stateFact = data.states.find(stf => stf.id === parseInt(req.body.id));
+const deleteStateFact = async (req, res) => {
+    if (!req?.body?.id) return res.status(400).json({ 'message': 'State ID required.' });
+
+    const stateFact = await StateFact.findOne({ _id: req.body.id }).exec();
     if (!stateFact) {
-        return res.status(400).json({ "message": `State Fact ID ${req.body.id} not found` });
+        return res.status(204).json({ "message": `No state matches ID ${req.body.id}.` });
     }
-    const filteredArray = data.states.filter(stf => stf.id !== parseInt(req.body.id));
-    data.setStateFacts([...filteredArray]);
-    res.json(data.states);
+    const result = await stateFact.deleteOne(); //{ _id: req.body.id }
+    res.json(result);
 }
 
-const getStateFact = (req, res) => {
-    const stateFact = data.states.find(stf => stf.id === parseInt(req.params.id));
+const getStateFact = async (req, res) => {
+    if (!req?.params?.id) return res.status(400).json({ 'message': 'State ID required.' });
+
+    const stateFact = await StateFact.findOne({ _id: req.params.id }).exec();
     if (!stateFact) {
-        return res.status(400).json({ "message": `State Fact ID ${req.params.id} not found` });
+        return res.status(204).json({ "message": `No state matches ID ${req.params.id}.` });
     }
     res.json(stateFact);
 }
