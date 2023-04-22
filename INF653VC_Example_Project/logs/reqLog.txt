@@ -178,3 +178,5 @@
 20230421	22:35:11	1bb1f4c8-cf39-4382-8d3c-d1e735fcb7b3	POST	undefined	/
 20230421	22:35:39	f00aacf8-7725-4881-95e8-748084fabd8d	GET	undefined	/employees
 20230421	22:35:45	2b063c43-e3c3-4533-ba24-0d122b821a52	POST	undefined	/employees
+20230422	08:46:44	dd552040-ad3e-421b-88d4-8d7ec3c7e6ca	POST	undefined	/
+20230422	08:47:18	2c87c7e7-4571-46c3-83ae-f00d96d91822	POST	undefined	/

@@ -3,9 +3,12 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const cors = require('cors');
-const corsOptions = require('./config/corsOptions')
+const corsOptions = require('./config/corsOptions');
 const { logger } = require('./middleware/logEvents');
 const errorHandler = require('./middleware/errorHandler');
+const verifyJWT = require('./middleware/verifyJWT');
+const cookieParser = require('cookie-parser');
+const credentials = require('./middleware/credentials');
 const mongoose = require('mongoose');
 const connectDB = require('./config/dbConn');
 const PORT = process.env.PORT || 3500;
@@ -16,6 +19,10 @@ connectDB();
 // Custom Middleware logger to see requests for EVERYTHING as it comes through (must be at the top of all other Middleware functions)...
 app.use(logger);
 
+// Handle options credentials check - before CORS!
+// and fetch cookies credentials requirement
+app.use(credentials);
+
 // CORS Options Controller
 app.use(cors(corsOptions));
 
@@ -25,11 +32,20 @@ app.use(express.urlencoded({ extended: false }));
 // Built-in Middleware for json
 app.use(express.json());
 
-// Server static files (like images, etc that should be available to the public - put in "Public" folder)
+//middleware for cookies
+app.use(cookieParser());
+
+// Serve static files (like images, etc that should be available to the public - put in "Public" folder)
 app.use('/', express.static(path.join(__dirname, '/public')));
 
 // routes
 app.use('/', require('./routes/root'));
+app.use('/register', require('./routes/register'));
+app.use('/auth', require('./routes/auth'));
+app.use('/refresh', require('./routes/refresh'));
+app.use('/logout', require('./routes/logout'));
+
+app.use(verifyJWT);
 app.use('/employees', require('./routes/api/employees'));
 
 // app.all() is for Routing and accepts Regex.
