@@ -8,7 +8,7 @@
     "dev": "nodemon server.js"
   },
   "engines": {
-    "node": "18.15.0"
+    "node": "18"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,7 @@
   "bugs": {
     "url": "https://github.com/jarrettsmo/INF653VC_Final_NodejsRestAPI_Jarrett_Smolarkiewicz/issues"
   },
-  "homepage": "https://inf-653-vc-final-project-jarrett-smolarkiewicz.glitch.me/states",
+  "homepage": "https://github.com/jarrettsmo/INF653VC_Final_NodejsRestAPI_Jarrett_Smolarkiewicz.git",
   "dependencies": {
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
