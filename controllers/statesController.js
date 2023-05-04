@@ -7,13 +7,13 @@ const getAllStateFacts = async (req, res) => {
 }
 
 const createNewStateFact = async (req, res) => {
-    if (!req?.body?.stateCode) {
+    if (!req?.body?.code) {
         return res.status(400).json({ 'message': 'A state code is required at minimum.' });
     }
 
     try {
         const result = await StateFact.create({
-            stateCode: req.body.stateCode,
+            code: req.body.code,
             funfacts: req.body.funfacts
         });
 
@@ -32,7 +32,7 @@ const updateStateFact = async (req, res) => {
     if (!stateFact) {
         return res.status(204).json({ "message": `No state matches ID ${req.body.id}.` });
     }
-    if (req.body?.stateCode) stateFact.stateCode = req.body.stateCode;
+    if (req.body?.code) stateFact.code = req.body.code;
     if (req.body?.funfacts) stateFact.funfacts = req.body.funfacts;
     const result = await stateFact.save();
     res.json(result);
