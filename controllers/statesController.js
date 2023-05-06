@@ -1,19 +1,24 @@
-const StateFact = require('../model/State');
+const State = require('../model/State');
 
-const getAllStateFacts = async (req, res) => {
-    const stateFacts = await StateFact.find();
-    if (!StateFact) return res.status(204).json({ 'message': 'No states with fun facts found.' });
+const getAllStates = async (req, res) => {
+    const stateFacts = await State.find();
+    if (!State) return res.status(204).json({ 'message': 'No states with fun facts found.' });
     res.json(stateFacts);
 }
 
-const createNewStateFact = async (req, res) => {
+const createNewState = async (req, res) => {
     if (!req?.body?.code) {
         return res.status(400).json({ 'message': 'A state code is required at minimum.' });
     }
 
     try {
-        const result = await StateFact.create({
+        const result = await State.create({
             code: req.body.code,
+            contig: req.body.contig,
+            nickname: req.body.nickname,
+            admission: req.body.admission,
+            capital: req.body.capital,
+            population: req.body.population,
             funfacts: req.body.funfacts
         });
 
@@ -23,47 +28,47 @@ const createNewStateFact = async (req, res) => {
     }
 }
 
-const updateStateFact = async (req, res) => {
+const updateState = async (req, res) => {
     if (!req?.body?.id) {
         return res.status(400).json({ 'message': 'ID parameter is required.' });
     }
 
-    const stateFact = await StateFact.findOne({ _id: req.body.id }).exec();
-    if (!stateFact) {
-        return res.status(204).json({ "message": `No state matches ID ${req.body.id}.` });
+    const stateID = await State.findOne({ _id: req.body.id }).exec();
+    if (!stateID) {
+        return res.status(204).json({ 'message': `No state matches ID ${req.body.id}.` });
     }
-    if (req.body?.code) stateFact.code = req.body.code;
-    if (req.body?.funfacts) stateFact.funfacts = req.body.funfacts;
-    const result = await stateFact.save();
+    if (req.body?.code) stateID.code = req.body.code;
+    if (req.body?.funfacts) stateID.funfacts = req.body.funfacts;
+    const result = await stateID.save();
     res.json(result);
 }
 
-const deleteStateFact = async (req, res) => {
+const deleteState = async (req, res) => {
     if (!req?.body?.id) return res.status(400).json({ 'message': 'State ID required.' });
     
-    const stateFact = await StateFact.findOne({ _id: req.body.id }).exec();
-    if (!stateFact) {
+    const stateID = await State.findOne({ _id: req.body.id }).exec();
+    if (!stateID) {
         return res.status(204).json({ "message": `No state matches ID ${req.body.id}.` });
     }
-    const result = await stateFact.deleteOne(); //{ _id: req.body.id }
+    const result = await stateID.deleteOne(); // { _id: req.body.id }
     res.json(result);
 }
 
-const getStateFact = async (req, res) => {
+const getState = async (req, res) => {
     if (!req?.params?.id) return res.status(400).json({ 'message': 'State ID required.' });
     
-    const stateFact = await StateFact.findOne({ _id: req.params.id }).exec();
-    if (!stateFact) {
+    const stateID = await State.findOne({ _id: req.params.id }).exec();
+    if (!stateID) {
         return res.status(204).json({ "message": `No state matches ID ${req.params.id}.` });
     }
-    res.json(stateFact);
+    res.json(stateID);
 }
 
 module.exports = { 
-    getAllStateFacts,
-    createNewStateFact,
-    updateStateFact,
-    deleteStateFact,
-    getStateFact
+    getAllStates,
+    createNewState,
+    updateState,
+    deleteState,
+    getState
 };
 
