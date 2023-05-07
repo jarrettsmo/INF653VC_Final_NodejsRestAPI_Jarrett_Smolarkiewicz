@@ -10,7 +10,8 @@ const stateSchema = new Schema({
     contig: {
         type: Boolean,
         required: true,
-        unique: true
+        index: true,
+        unique: false
     },
     nickname: {
         type: String,
@@ -20,7 +21,8 @@ const stateSchema = new Schema({
     admission: {
         type: Date,
         required: true,
-        unique: true
+        index: true,
+        unique: false
     },
     capital: {
         type: String,
@@ -30,7 +32,8 @@ const stateSchema = new Schema({
     population: {
         type: Number,
         required: true,
-        unique: true
+        index: true,
+        unique: false
     },
     funfacts: [{
         type: String,

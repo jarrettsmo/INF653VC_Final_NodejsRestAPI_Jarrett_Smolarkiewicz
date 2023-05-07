@@ -1,0 +1,62 @@
+[
+    {
+      "id": "64571d07ff82ac08cd4e6da8",
+      "code": "CO",
+      "contig": true,
+      "nickname": "The Centennial State",
+      "admission": "1876-08-01",
+      "capital": "Denver",
+      "population": 5268367,
+      "funfacts": [ "Became a state on August 1st, 1876.",
+                    "The state tree is the Colorado Blue Spruce.",
+                    "The state quarter features the Rocky Mountains."]
+    },
+    {
+      "id": "64571d6aff82ac08cd4e6db4",
+      "code": "KS",
+      "contig": true,
+      "nickname": "Sunflower State",
+      "admission": "1861-01-29",
+      "capital": "Topeka",
+      "population": 2893957,
+      "funfacts": [ "Became a state on January 29th, 1861.",
+                    "The state tree is the Eastern Cottonwood.",
+                    "The state quarter shows an American Bison." ]
+    },
+    {
+      "id": "645733f6ff82ac08cd4e6dce",
+      "code": "MO",
+      "contig": true,
+      "nickname": "Show Me State",
+      "admission": "1821-08-10",
+      "capital": "Jefferson City",
+      "population": 6044171,
+      "funfacts": [ "Became a state on August 10th, 1821.",
+                    "The state tree is the Flowering Dogwood.",
+                    "The state quarter shows a Gateway Arch." ]
+    },
+    {
+      "id": "64573412ff82ac08cd4e6dd2",
+      "code": "NE",
+      "contig": true,
+      "nickname": "Cornhusker State",
+      "admission": "1867-03-01",
+      "capital": "Lincoln",
+      "population": 1868516,
+      "funfacts": [ "Became a state on March 1st, 1867.",
+                    "The state tree is the Eastern Cottonwood.",
+                    "The state quarter shows Chimney Rock." ]
+    },
+    {
+      "id": "6457347eff82ac08cd4e6de4",
+      "code": "OK",
+      "contig": true,
+      "nickname": "Sooner State",
+      "admission": "1907-11-16",
+      "capital": "Oklahoma City",
+      "population": 3850568,
+      "funfacts": [ "Became a state on November 16th, 1907.",
+                    "The state tree is the Eastern Redbud.",
+                    "The state quarter shows a Scissortail Flycatcher." ]
+    }
+  ]
