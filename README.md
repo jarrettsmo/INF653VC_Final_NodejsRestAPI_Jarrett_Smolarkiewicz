@@ -37,7 +37,7 @@ INF653 Back End Web Development - Final Project Requirements
     i) a string
     ii) required
     iii) Unique
- d) The Schema will also a funfacts property which is
+ d) The Schema will also have a funfacts property which is
     i) an array that contains string data
  e) In the collection, the stateCode property will contain state abbreviation values.
  f) In the collection, the funfacts array will contain “fun facts” about the state.

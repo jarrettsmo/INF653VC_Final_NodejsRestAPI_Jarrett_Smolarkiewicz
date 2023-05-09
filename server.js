@@ -22,6 +22,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const cors = require('cors');
+const { corsMiddleware } = require('./config/corsOptions');
 const corsOptions = require('./config/corsOptions');
 const { logger } = require('./middleware/logEvents');
 const errorHandler = require('./middleware/errorHandler');
@@ -38,6 +39,8 @@ app.use(logger);
 
 // CORS Options Controller
 app.use(cors(corsOptions));
+app.use(corsMiddleware);
+app.options('*', cors());
 
 // Built-in Middleware for express.js
 app.use(express.urlencoded({ extended: false }));
@@ -70,6 +73,7 @@ app.all('*', (req, res) => {
 // Function with error logging parameter - also displays message in browser.
 app.use(errorHandler);
 
+// Displays messages to confirm database and server running successfully.
 mongoose.connection.once('open', () => {
     console.log('Connected to MongoDB');
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

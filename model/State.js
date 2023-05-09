@@ -2,16 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const stateSchema = new Schema({
-    code: {
+    stateCode: {
         type: String,
         required: true,
         unique: true
-    },
-    contig: {
-        type: Boolean,
-        required: true,
-        index: true,
-        unique: false
     },
     nickname: {
         type: String,
@@ -41,4 +35,5 @@ const stateSchema = new Schema({
     }]
 });
 
+// Export module (Database Schema)
 module.exports = mongoose.model('State', stateSchema);

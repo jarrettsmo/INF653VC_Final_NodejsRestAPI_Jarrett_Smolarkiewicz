@@ -1,0 +1,32 @@
+[
+    {
+      "stateCode": "CO",
+      "funfacts": [ "Although actor Tim Allen grew up in, and is often associated with Michigan, he was born in Denver, CO.",
+                    "The state tree is the Colorado Blue Spruce.",
+                    "The state quarter features the Rocky Mountains."]
+    },
+    {
+      "stateCode": "KS",
+      "funfacts": [ "Senator and Presidential candidate Bob Dole was born in Russell, KS.",
+                    "The state tree is the Eastern Cottonwood.",
+                    "The state quarter shows an American Bison." ]
+    },
+    {
+      "stateCode": "MO",
+      "funfacts": [ "Famous TV newscster Walter Cronkite was born in Saint Joseph, MO.",
+                    "The state tree is the Flowering Dogwood.",
+                    "The state quarter shows a Gateway Arch." ]
+    },
+    {
+      "stateCode": "NE",
+      "funfacts": [ "Actor Henry Fonda was born in Grand Island, NE.",
+                    "The state tree is the Eastern Cottonwood.",
+                    "The state quarter shows Chimney Rock." ]
+    },
+    {
+      "stateCode": "OK",
+      "funfacts": [ "Baseball superstar Mickey Mantle was originally born in Spavinaw, OK.",
+                    "The state tree is the Eastern Redbud.",
+                    "The state quarter shows a Scissortail Flycatcher." ]
+    }
+  ]
