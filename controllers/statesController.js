@@ -12,11 +12,17 @@ const nonContig = ['AK', 'HI'];
 // Setup getAllSates route to return all states
 const getAllStates = async (req, res) => {
     const funfacts = await State.find();
-    // Account for when GET request returns all states where "/states/?contig=false" (Alaska and Hawaii only).
-    // Account for when GET request returns all states where "/states/?contig=true" (other 48 states).
     const contig = req.query.contig;
+    let filteredStates = data.states;
+    // Account for when GET request returns all states where "/states/?contig=true" (other 48 states).
+    if (contig === 'true') {
+      filteredStates = data.states.filter(state => state.code !== 'AK' && state.code !== 'HI');
+    // Account for when GET request returns all states where "/states/?contig=false" (Alaska and Hawaii only).
+    } else if (contig === 'false') {
+      filteredStates = data.states.filter(state => state.code === 'AK' || state.code === 'HI');
+    }
     
-    const result = data.states.map(item1 => {
+    const result = filteredStates.map(item1 => {
         const match = funfacts.find(item2 => item2.stateCode.toUpperCase() === item1.code.toUpperCase());
         if(match) {
             console.log(match)
